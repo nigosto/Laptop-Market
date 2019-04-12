@@ -1,0 +1,43 @@
+<div fxLayout="column" fxLayoutGap="30px">
+    <div fxFlex fxLayout="row" fxLayoutGap="180px">
+        <div class="left-side">
+            <h1>{{laptop.brand}} {{laptop.model}}</h1>
+            <div id="image-container">
+                <img src="{{laptop.image}}">
+            </div>
+        </div>
+        <div fxLayout="column" fxLayouGap="30px">
+            <h1 class="center-text">Characteristics</h1>
+            <ul>
+                <li>
+                    <mat-icon>done</mat-icon>
+                    Processor: {{laptop.processor}}
+                </li>
+                <li>
+                    <mat-icon>done</mat-icon>
+                    Video Card: {{laptop.videoCard}}
+                </li>
+                <li>
+                    <mat-icon>done</mat-icon>
+                    RAM: {{laptop.RAM}} GB
+                </li>
+                <li>
+                    <mat-icon>done</mat-icon>
+                    Memory: {{laptop.memory}} GB
+                </li>
+                <li>
+                    <mat-icon>done</mat-icon>
+                    Screem: {{laptop.screen}}"
+                </li>
+            </ul>
+            <div fxFlex fxLayout="row" fxLayoutGap="30px">
+                <span>Price: {{laptop.price}}$</span>
+                <button mat-raised-button color="warn">Buy</button>
+            </div>
+        </div>
+    </div>
+    <div class="left-side">
+        <h1>Description</h1>
+        <p>{{laptop.description}}</p>
+    </div>
+</div>

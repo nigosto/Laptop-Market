@@ -1,0 +1,36 @@
+<form (ngSubmit)="submitHandler()" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" [formGroup]="form">
+        <h2>Register</h2>
+        <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" type="text" placeholder="Enter firstName..." name="firstName"
+                    id="firstName">
+                <mat-error *ngIf="form.get('firstName').hasError('required')">Please enter first name</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" type="text" placeholder="Enter lastName..." name="lastName"
+                        id="lastName">
+                    <mat-error *ngIf="form.get('lastName').hasError('required')">Please enter last name</mat-error>
+                </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" type="text" placeholder="Enter username..." name="username"
+                id="username">
+            <mat-error *ngIf="form.get('username').hasError('required')">Please enter username</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="text" placeholder="Enter email..." name="email"
+                    id="email">
+                <mat-error *ngIf="form.get('email').hasError('required')">Please enter email</mat-error>
+                <mat-error *ngIf="form.get('email').hasError('email')">Please enter valid email</mat-error>
+            </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" placeholder="Enter password..." name="password"
+                id="password">
+            <mat-error *ngIf="form.get('password').hasError('required')">Please enter password</mat-error>
+            <mat-error *ngIf="form.get('password').hasError('minlength')">Password must be at least 4 symbol</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="form.invalid">Register</button>
+    </form>

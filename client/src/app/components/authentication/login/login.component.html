@@ -1,0 +1,16 @@
+<form (ngSubmit)="submitHandler()" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" [formGroup]="form">
+    <h2>Login</h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" type="text" placeholder="Enter username..." name="username"
+            id="username">
+        <mat-error *ngIf="form.get('username').hasError('required')">Please enter username</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Enter password..." name="password"
+            id="password">
+        <mat-error *ngIf="form.get('password').hasError('required')">Please enter password</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
+</form>
