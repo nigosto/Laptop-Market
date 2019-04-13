@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LaptopService } from 'src/app/core/services/laptop.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-laptop-create',
@@ -10,7 +12,7 @@ export class LaptopCreateComponent implements OnInit {
 
     form: FormGroup;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private laptopService: LaptopService, private router: Router) { }
 
     ngOnInit() {
         this.form = this.fb.group({
@@ -29,7 +31,12 @@ export class LaptopCreateComponent implements OnInit {
     }
 
     submitHandler() {
-        console.log(this.form.value)
+        this.laptopService.createLaptop(this.form.value).subscribe(data => {
+            console.log(data)
+
+            this.router.navigate(['/']) 
+        })
+
     }
 
 }

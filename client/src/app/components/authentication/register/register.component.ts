@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
             localStorage.setItem('token', data['token'])
             localStorage.setItem('userId', data['userId'])
             localStorage.setItem('username', data['username'])
+            localStorage.setItem('isAdmin', data['isAdmin'])
             this.router.navigate(['/'])
         })
     }

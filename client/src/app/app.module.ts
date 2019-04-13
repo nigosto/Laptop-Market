@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { SharedModule } from './components/shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ResponseHandleInterceptorService } from './core/interceptors/response-handle-interceptor.service';
+import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,11 @@ import { ResponseHandleInterceptorService } from './core/interceptors/response-h
           provide: HTTP_INTERCEPTORS,
           useClass: ResponseHandleInterceptorService,
           multi: true
+      },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptorService,
+        multi: true
       }
   ],
   bootstrap: [AppComponent]

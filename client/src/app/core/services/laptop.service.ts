@@ -18,4 +18,8 @@ export class LaptopService {
     getLaptopDetails(id: string) {
         return this.http.get<Laptop>(this.BASE_URL + '/details/' + id)
     }
+
+    createLaptop(body: Laptop) {
+        return this.http.post(this.BASE_URL + '/create', body)
+    }
 }

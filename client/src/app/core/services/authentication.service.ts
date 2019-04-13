@@ -17,4 +17,16 @@ export class AuthenticationService {
     register(body: object) {
         return this.http.post(this.BASE_URL + '/signup', body)
     }
+
+    isAuthenticated() {
+        return localStorage.getItem('token') !== null;
+    }
+
+    isAdmin() {
+        return localStorage.getItem('isAdmin') === 'true';
+    }
+
+    logout() {
+        return localStorage.clear();
+    }
 }

@@ -6,22 +6,28 @@
         <li>
             <a routerLink="/laptop/all">All Laptops</a>
         </li>
-        <li>
+        <li *ngIf="isAuth">
             <a routerLink="/cart">Cart</a>
         </li>
-        <li>
+        <li *ngIf="isAuth">
             <a routerLink="/orders">My orders</a>
         </li>
-        <li>
+        <li *ngIf="isAdmin">
             <a routerLink="/laptop/create">Create Laptop</a>
         </li>
     </ul>
     <ul fxFlex fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="flex-end">
-        <li>
+        <li *ngIf="isAuth">
+            <a>Welcome, {{username}}</a>
+        </li>
+        <li *ngIf="!isAuth">
             <a routerLink="/user/login">Login</a>
         </li>
-        <li>
+        <li *ngIf="!isAuth">
             <a routerLink="/user/register">Register</a>
+        </li>
+        <li *ngIf="isAuth">
+            <a routerLink="#" (click)="logout()">Logout</a>
         </li>
     </ul>
 </mat-toolbar>
