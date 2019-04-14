@@ -6,6 +6,7 @@ import { GetAllLaptopsResolver } from 'src/app/core/resolvers/get-all-laptops.re
 import { LaptopDetailsComponent } from './laptop-details/laptop-details.component';
 import { GetLaptopDetailsResolver } from 'src/app/core/resolvers/get-laptop-details.resolver';
 import { AdminGuard } from 'src/app/core/guards/admin.guard';
+import { LaptopLandingComponent } from './laptop-landing/laptop-landing.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,11 @@ const routes: Routes = [
         path: 'details/:id',
         component: LaptopDetailsComponent,
         resolve: {laptop: GetLaptopDetailsResolver}
+    },
+    {
+        path: 'home',
+        component: LaptopLandingComponent,
+        resolve: {laptops: GetAllLaptopsResolver}
     }
 ]
 

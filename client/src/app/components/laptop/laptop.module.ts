@@ -7,9 +7,10 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/material.module';
 import { LaptopDetailsComponent } from './laptop-details/laptop-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LaptopLandingComponent } from './laptop-landing/laptop-landing.component';
 
 @NgModule({
-    declarations: [LaptopCreateComponent, LaptopAllComponent, LaptopDetailsComponent],
+    declarations: [LaptopCreateComponent, LaptopAllComponent, LaptopDetailsComponent, LaptopLandingComponent],
     imports: [
         LaptopRoutingModule,
         CommonModule,

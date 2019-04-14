@@ -27,12 +27,12 @@
                 </li>
                 <li>
                     <mat-icon>done</mat-icon>
-                    Screem: {{laptop.screen}}"
+                    Screen: {{laptop.screen}}"
                 </li>
             </ul>
             <div fxFlex fxLayout="row" fxLayoutGap="30px">
                 <span>Price: {{laptop.price}}$</span>
-                <button mat-raised-button color="warn">Buy</button>
+                <button mat-raised-button color="warn" (click)="buyHandler(laptop._id)">Buy</button>
             </div>
         </div>
     </div>

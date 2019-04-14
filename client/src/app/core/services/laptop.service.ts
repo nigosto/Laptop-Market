@@ -22,4 +22,6 @@ export class LaptopService {
     createLaptop(body: Laptop) {
         return this.http.post(this.BASE_URL + '/create', body)
     }
+
+    
 }

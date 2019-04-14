@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutGap="30px">
+    <div *ngFor="let laptop of laptops" id="order" fxLayout="row" fxLayoutGap="30px">
+        <img src="{{laptop.image}}">
+        <div fxLayout="column" fxLayoutGap="30px" id="text">
+            <h2>{{laptop.brand}} {{laptop.model}}</h2>
+            <p>{{laptop.description | slice :0 : 300}}...</p>
+        </div>
+        <app-cart-form (removeLaptopEmitter)="refresh()" [laptop]="laptop"></app-cart-form>
+    </div>
+</div>

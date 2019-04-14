@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators'
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -13,18 +14,32 @@ export class ResponseHandleInterceptorService implements HttpInterceptor {
         return next.handle(req).pipe(
             catchError((err: HttpErrorResponse) => {
                 if (err.status === 401) {
+                    if (req.url.startsWith('http://localhost:9999/feed/cart')) {
+                        this.router.navigate(['/user/login'])
+                        console.clear()
+                        return;
+                    }
                     if (err.error.message) {
                         this.snack.open(err.error.message, 'Undo', {
                             duration: 3000
                         })
                     }
-                    else if (err.error.errors){
+                    else if (err.error.errors) {
+
                         err.error.errors.forEach(error => {
                             this.snack.open(error, 'Undo', {
                                 duration: 3000
                             })
                         });
+                    } else if (err.error.error) {
+                        this.snack.open(err.error.error, 'Undo', {
+                            duration: 3000
+                        })
                     }
+                } else if (err.status === 400) {
+                    this.snack.open(err.error.error, 'Undo', {
+                        duration: 3000
+                    })
                 }
 
                 return throwError(err)
@@ -32,5 +47,5 @@ export class ResponseHandleInterceptorService implements HttpInterceptor {
         )
     }
 
-    constructor(private snack: MatSnackBar) { }
+    constructor(private snack: MatSnackBar, private router: Router) { }
 }

@@ -7,9 +7,16 @@ module.exports = {
         try {
             const laptops = await Laptop.find();
 
+            const newLaptops = laptops.reverse();
+            const lastStock = laptops.filter(l => l.quantity === 1).slice(0,5);
+            const bestLaptops = laptops.filter(l => l.price >= 2000).slice(0,5);
+
             res.status(200).json({
                 message: "Laptops fetched successfully!",
-                laptops
+                laptops,
+                newLaptops,
+                lastStock,
+                bestLaptops
             })
 
         } catch (error) {
@@ -372,9 +379,9 @@ module.exports = {
         try {
             const userId = req.params.userId;
 
-            let user = await User.findById(userId);
+            let orders = await Order.find({buyer: userId}).populate('laptop');
             
-            res.status(200).json({message: 'Orders successfully fetched!', orders: user.laptops})
+            res.status(200).json({message: 'Orders successfully fetched!', orders})
         } catch (error) {
             if (!error.statusCode) {
                 error.statusCode = 500;
@@ -386,7 +393,7 @@ module.exports = {
         try {
             const userId = req.params.userId;
 
-            let user = await User.findById(userId);
+            let user = await User.findById(userId).populate('cart');
 
             res.status(200).json({message: 'Cart fetched successfully!', orders: user.cart})
             
