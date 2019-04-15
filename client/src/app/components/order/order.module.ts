@@ -4,9 +4,10 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { OrderRoutingModule } from './order-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from 'src/app/material.module';
+import { OrderAllComponent } from './order-all/order-all.component';
 
 @NgModule({
-    declarations: [OrderListComponent],
+    declarations: [OrderListComponent, OrderAllComponent],
     imports: [
         CommonModule,
         OrderRoutingModule,

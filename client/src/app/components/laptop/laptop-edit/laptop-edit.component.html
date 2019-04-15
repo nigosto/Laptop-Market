@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
-    <h2>Create Laptop</h2>
+    <h2>Edit Laptop</h2>
     <form (ngSubmit)="submitHandler()" fxFlex fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center center"
         [formGroup]="form">
         <div fxLayout="column" fxLayoutGap="20px" class="left-fields">
@@ -17,8 +17,8 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Description</mat-label>
-                <textarea matInput formControlName="description" type="text" placeholder="Enter description..."
-                    name="description" id="description"></textarea>
+                <input matInput formControlName="description" type="text" placeholder="Enter description..."
+                    name="description" id="description">
                 <mat-error *ngIf="form.get('description').hasError('required')">Please enter description</mat-error>
                 <mat-error *ngIf="form.get('description').hasError('minlength')">Description must be at least 10 symbols
                 </mat-error>
@@ -78,7 +78,7 @@
                 <mat-error *ngIf="form.get('quantity').hasError('min')">Quantity must be positive number</mat-error>
             </mat-form-field>
             <div id="button-div">
-                <button mat-raised-button color="primary" [disabled]="form.invalid">Create</button>
+                <button mat-raised-button color="primary" [disabled]="form.invalid">Edit</button>
             </div>
         </div>
     </form>

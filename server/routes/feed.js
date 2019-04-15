@@ -13,7 +13,8 @@ router.put('/order/send/:id', isAdmin, laptopController.orderSend)
 router.put('/laptop/edit/:id', isAdmin, laptopController.laptopEdit)
 router.put('/cart/:userId/remove/:laptopId', isAuth, laptopController.laptopRemoveFromCart)
 router.put('/laptop/remove/:id', isAdmin,laptopController.laptopMakeUnavailable )
-router.get('/order/:userId', isAuth, laptopController.getUserLaptops)
+router.get('/order/user/:userId', isAuth, laptopController.getUserLaptops)
 router.get('/cart/:userId', isAuth, laptopController.getUserCart)
+router.get('/order/all', isAdmin, laptopController.getAllOrders)
 
 module.exports = router

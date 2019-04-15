@@ -208,6 +208,7 @@ module.exports = {
 
     orderDelete: async (req,res,next) => {
         try {
+            console.log('hi')
             const id = req.params.id;
 
             let order = await Order.findById(id);
@@ -397,6 +398,18 @@ module.exports = {
 
             res.status(200).json({message: 'Cart fetched successfully!', orders: user.cart})
             
+        } catch (error) {
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+    getAllOrders: async (req,res,next) => {
+        try {
+            let orders = await Order.find().populate('laptop');
+
+            res.status(200).json({orders, message: 'Orders fetched successfully!'})
         } catch (error) {
             if (!error.statusCode) {
                 error.statusCode = 500;

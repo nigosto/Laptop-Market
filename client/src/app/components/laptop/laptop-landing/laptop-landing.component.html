@@ -14,7 +14,7 @@
                 <button mat-raised-button color="warn" [ngClass]="{'left-button': !isAdmin}" (click)="buyHandler(laptop._id)">Buy</button>
                 <a mat-raised-button color="primary" [ngClass]="{'right-button': !isAdmin}"
                     routerLink="/laptop/details/{{laptop._id}}">Details</a>
-                <a mat-raised-button color="primary" id="edit-button" *ngIf="isAdmin">Edit</a>
+                <a mat-raised-button color="primary" id="edit-button" routerLink="/laptop/edit/{{laptop._id}}" *ngIf="isAdmin">Edit</a>
             </mat-card-actions>
         </mat-card>
     </div>
@@ -35,7 +35,7 @@
                 <button mat-raised-button color="warn" [ngClass]="{'left-button': !isAdmin}" (click)="buyHandler(laptop._id)">Buy</button>
                 <a mat-raised-button color="primary" [ngClass]="{'right-button': !isAdmin}"
                     routerLink="/laptop/details/{{laptop._id}}">Details</a>
-                <a mat-raised-button color="primary" id="edit-button" *ngIf="isAdmin">Edit</a>
+                <a mat-raised-button color="primary" id="edit-button" routerLink="/laptop/edit/{{laptop._id}}" *ngIf="isAdmin">Edit</a>
             </mat-card-actions>
         </mat-card>
     </div>
@@ -56,7 +56,7 @@
                 <button mat-raised-button color="warn" [ngClass]="{'left-button': !isAdmin}" (click)="buyHandler(laptop._id)">Buy</button>
                 <a mat-raised-button color="primary" [ngClass]="{'right-button': !isAdmin}"
                     routerLink="/laptop/details/{{laptop._id}}">Details</a>
-                <a mat-raised-button color="primary" id="edit-button" *ngIf="isAdmin">Edit</a>
+                <a mat-raised-button color="primary" id="edit-button" routerLink="/laptop/edit/{{laptop._id}}" *ngIf="isAdmin">Edit</a>
             </mat-card-actions>
         </mat-card>
     </div>

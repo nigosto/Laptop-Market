@@ -10,6 +10,7 @@ img {
 
 .right-button {
     margin-left: 25px !important;
+   
 }
 
 .left-button {
@@ -24,4 +25,12 @@ img {
 h1 {
     text-align: center;
     margin-top: 0 !important;
+}
+
+mat-card-header {
+    height: 50px;
+}
+
+::ng-deep .mat-card-content {
+    height: 110px !important;
 }

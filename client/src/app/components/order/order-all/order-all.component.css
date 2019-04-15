@@ -9,6 +9,8 @@ img {
     margin-left: 30px;
     margin-right: 30px;
     height: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #text {
@@ -20,7 +22,9 @@ p {
     margin-top: 0px;
 }
 
-#status {
+
+
+button {
     height: 40px;
     margin-left: 10px;
     margin-top: 13px;
@@ -52,4 +56,12 @@ a  {
     line-height: 40px;
     margin-left: 20px;
     margin-top: 13px;
+}
+
+mat-tab {
+    font-size: 20px;
+}
+
+::ng-deep .mat-tab-label-content {
+    font-size: 20px;
 }

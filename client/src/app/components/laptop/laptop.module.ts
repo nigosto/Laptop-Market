@@ -8,16 +8,16 @@ import { MaterialModule } from 'src/app/material.module';
 import { LaptopDetailsComponent } from './laptop-details/laptop-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LaptopLandingComponent } from './laptop-landing/laptop-landing.component';
+import { LaptopEditComponent } from './laptop-edit/laptop-edit.component';
 
 @NgModule({
-    declarations: [LaptopCreateComponent, LaptopAllComponent, LaptopDetailsComponent, LaptopLandingComponent],
+    declarations: [LaptopCreateComponent, LaptopAllComponent, LaptopDetailsComponent, LaptopLandingComponent, LaptopEditComponent],
     imports: [
         LaptopRoutingModule,
         CommonModule,
         MaterialModule,
         FlexLayoutModule,
         ReactiveFormsModule
-    ],
-    exports: [LaptopAllComponent, LaptopCreateComponent]
+    ]
 })
 export class LaptopModule {}

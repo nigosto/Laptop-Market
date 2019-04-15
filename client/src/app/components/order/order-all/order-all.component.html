@@ -1,0 +1,48 @@
+<mat-tab-group dynamicHeight mat-stretch-tabs>
+    <mat-tab label="Not processed">
+        <div fxLayout="column" fxLayoutGap="30px">
+            <div fxLayout="row" fxLayuotGap="30px" *ngFor="let order of pendingOrders" id="order">
+                <img src="{{order.laptop.image}}">
+                <div fxLayout="column" fxLayoutGap="30px" id="text">
+                    <h2>{{order.laptop.brand}} {{order.laptop.model}}</h2>
+                    <p>{{order.laptop.description | slice :0 : 230}}...</p>
+                </div>
+                <div fxLayout="column" fxLayoutGap="30px">
+                    <div fxLayout="row" fxLayoutGap="30px" id="info-box">
+                        <span>Quantity: {{order.quantity}}</span>
+                        <span>Price: {{order.price}}</span>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px" id="status-box">
+                        <button mat-raised-button color="primary" (click)="sendHandler(order._id)">Send</button>
+                        <button mat-raised-button color="warn" (click)="removeHandler(order._id)">Remove</button>
+                        <a mat-raised-button color="primary" [ngClass]="{'right-button': !isAdmin}"
+                            routerLink="/laptop/details/{{order.laptop._id}}">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Sent">
+        <div fxLayout="row" fxLayuotGap="30px" *ngFor="let order of sentOrders" id="order">
+            <img src="{{order.laptop.image}}">
+            <div fxLayout="column" fxLayoutGap="30px" id="text">
+                <h2>{{order.laptop.brand}} {{order.laptop.model}}</h2>
+                <p>{{order.laptop.description | slice :0 : 230}}...</p>
+            </div>
+            <div fxLayout="column" fxLayoutGap="30px">
+                <div fxLayout="row" fxLayoutGap="30px" id="info-box">
+                    <span>Quantity: {{order.quantity}}</span>
+                    <span>Price: {{order.price}}</span>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px" id="status-box">
+                    <h2>Status: </h2>
+                    <button id="status" [ngClass]="{'red': order.status==='Not processed'}" class="green"
+                        mat-raised-button>
+                        {{order.status}}</button>
+                    <a mat-raised-button color="primary" [ngClass]="{'right-button': !isAdmin}"
+                        routerLink="/laptop/details/{{order.laptop._id}}">Details</a>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

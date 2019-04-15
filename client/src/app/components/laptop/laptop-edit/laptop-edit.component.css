@@ -3,7 +3,7 @@ mat-form-field {
 }
 
 .right-fields {
-    margin-bottom: 45px;
+    margin-bottom: 27px;
 }
 
 #button-div {
@@ -14,4 +14,5 @@ mat-form-field {
 button {
     width: 200px;
     height: 55px;
+    font-size: 20px;
 }

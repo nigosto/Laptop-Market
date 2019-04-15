@@ -7,6 +7,7 @@ import { LaptopDetailsComponent } from './laptop-details/laptop-details.componen
 import { GetLaptopDetailsResolver } from 'src/app/core/resolvers/get-laptop-details.resolver';
 import { AdminGuard } from 'src/app/core/guards/admin.guard';
 import { LaptopLandingComponent } from './laptop-landing/laptop-landing.component';
+import { LaptopEditComponent } from './laptop-edit/laptop-edit.component';
 
 const routes: Routes = [
     {
@@ -28,6 +29,12 @@ const routes: Routes = [
         path: 'home',
         component: LaptopLandingComponent,
         resolve: {laptops: GetAllLaptopsResolver}
+    },
+    {
+        path: 'edit/:id',
+        component: LaptopEditComponent,
+        canActivate: [AdminGuard],
+        resolve: {laptop: GetLaptopDetailsResolver}
     }
 ]
 

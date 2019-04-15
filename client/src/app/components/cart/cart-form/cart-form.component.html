@@ -1,8 +1,8 @@
 <div fxLayout="column" fxLayoutGap="50px">
     <div fxLayout="row" fxLayoutGap="30px">
-        <form [formGroup]="form">
+        <form [formGroup]="form" class="form">
             <label>Quantity: </label>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" class="field">
                 <input class="input" matInput formControlName="quantity" type="number" name="quantity" id="quantity">
             </mat-form-field>
         </form>
@@ -11,7 +11,7 @@
         </span>
     </div>
     <div id="buttons">
-        <button mat-raised-button color="primary" [disabled]="form.invalid">Order</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="orderHandler()">Order</button>
         <button mat-raised-button color="primary" routerLink="/laptop/details/{{laptop._id}}">Details</button>
         <button mat-raised-button color="warn" (click)="removeHandler(laptop._id)">Remove</button>
     </div>

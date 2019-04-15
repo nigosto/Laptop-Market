@@ -23,5 +23,12 @@ export class LaptopService {
         return this.http.post(this.BASE_URL + '/create', body)
     }
 
+    editLaptop(laptopId: string, body: Laptop) {
+        return this.http.put(this.BASE_URL + `/edit/${laptopId}`, body);
+    }
+
     
+    orderLaptop(body: object, laptopId: string) {
+        return this.http.put(this.BASE_URL + `/buy/${laptopId}`, body)
+    }
 }

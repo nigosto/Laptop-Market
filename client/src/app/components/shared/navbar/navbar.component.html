@@ -15,6 +15,9 @@
         <li *ngIf="isAdmin">
             <a routerLink="/laptop/create">Create Laptop</a>
         </li>
+        <li *ngIf="isAdmin">
+            <a routerLink="/orders/all">Send Orders</a>
+        </li>
     </ul>
     <ul fxFlex fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="flex-end">
         <li *ngIf="isAuth">
