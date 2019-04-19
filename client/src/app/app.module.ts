@@ -10,10 +10,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ResponseHandleInterceptorService } from './core/interceptors/response-handle-interceptor.service';
 import { TokenInterceptorService } from './core/interceptors/token-interceptor.service';
 import { CartModule } from './components/cart/cart.module';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LaptopCreateComponent implements OnInit {
 
     form: FormGroup;
+    type: string = "Create"; 
 
     constructor(private fb: FormBuilder, private laptopService: LaptopService, private router: Router) { }
 
@@ -30,8 +31,8 @@ export class LaptopCreateComponent implements OnInit {
         })
     }
 
-    submitHandler() {
-        this.laptopService.createLaptop(this.form.value).subscribe(data => {
+    submitHandler(form: FormGroup) {
+        this.laptopService.createLaptop(form.value).subscribe(data => {
             console.log(data)
 
             this.router.navigate(['/']) 

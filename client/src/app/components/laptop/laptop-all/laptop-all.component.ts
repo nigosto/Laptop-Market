@@ -15,26 +15,10 @@ export class LaptopAllComponent implements OnInit {
     laptops: Laptop[];
 
     constructor(
-        private route: ActivatedRoute,
-        private cartService: CartService,
-        private authService: AuthenticationService,
-        private snack: MatSnackBar,
-        private router: Router
+        private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
         this.laptops = this.route.snapshot.data['laptops'].laptops;
-    }
-
-    isAdmin = this.authService.isAdmin()
-
-    buyHandler(laptopId: string) {
-        console.log('hi')
-        this.cartService.addLaptopToCart(laptopId, localStorage.getItem('userId')).subscribe(data => {
-            this.snack.open(data['message'], 'Undo', {
-                duration: 3000
-            })
-            this.router.navigate(['/cart'])
-        })
     }
 }

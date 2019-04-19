@@ -9,9 +9,11 @@ import { LaptopDetailsComponent } from './laptop-details/laptop-details.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { LaptopLandingComponent } from './laptop-landing/laptop-landing.component';
 import { LaptopEditComponent } from './laptop-edit/laptop-edit.component';
+import { LaptopCardComponent } from './laptop-card/laptop-card.component';
+import { LaptopFormComponent } from './laptop-form/laptop-form.component';
 
 @NgModule({
-    declarations: [LaptopCreateComponent, LaptopAllComponent, LaptopDetailsComponent, LaptopLandingComponent, LaptopEditComponent],
+    declarations: [LaptopCreateComponent, LaptopAllComponent, LaptopDetailsComponent, LaptopLandingComponent, LaptopEditComponent, LaptopCardComponent, LaptopFormComponent],
     imports: [
         LaptopRoutingModule,
         CommonModule,

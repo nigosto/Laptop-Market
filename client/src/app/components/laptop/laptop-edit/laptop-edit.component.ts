@@ -13,6 +13,7 @@ export class LaptopEditComponent implements OnInit {
 
     laptop: Laptop;
     form: FormGroup;
+    type: string = "Edit";
 
     constructor(private fb: FormBuilder, private laptopService: LaptopService, private router: Router,
         private route: ActivatedRoute,) { }
@@ -34,12 +35,12 @@ export class LaptopEditComponent implements OnInit {
         })
     }
 
-    submitHandler() {
+    submitHandler(form: FormGroup) {
         let id;
         this.route.params.subscribe(data => {
             id = data.id;
         })
-         this.laptopService.editLaptop(id,this.form.value).subscribe(data => {
+         this.laptopService.editLaptop(id,form.value).subscribe(data => {
              console.log(data)
 
              this.router.navigate(['/']) 

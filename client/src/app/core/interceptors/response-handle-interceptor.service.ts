@@ -40,6 +40,10 @@ export class ResponseHandleInterceptorService implements HttpInterceptor {
                     this.snack.open(err.error.error, 'Undo', {
                         duration: 3000
                     })
+                } else if (err.status === 500) {
+                    if(err.error.message.startsWith('Cast to ObjectId failed for value')) {
+                        this.router.navigate(['/not/found'])
+                    }
                 }
 
                 return throwError(err)

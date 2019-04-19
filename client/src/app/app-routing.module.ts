@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LaptopLandingComponent } from './components/laptop/laptop-landing/laptop-landing.component';
 import { CartComponent } from './components/cart/cart/cart.component';
 import { GetCartResolver } from './core/resolvers/get-cart.resolver';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -25,6 +26,14 @@ const routes: Routes = [
     {
         path: 'orders',
         loadChildren: './components/order/order.module#OrderModule'
+    },
+    {
+        path: '**',
+        redirectTo: 'not/found'
+    },
+    {
+        path: 'not/found',
+        component: NotFoundComponent
     }
 ];
 

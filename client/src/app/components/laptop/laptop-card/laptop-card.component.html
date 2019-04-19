@@ -1,0 +1,18 @@
+<div fxFlex fxLayout="row wrap" fxLayoutGap="20px">
+    <mat-card *ngFor="let laptop of laptops">
+        <mat-card-header>
+            <mat-card-title>{{laptop.brand}} {{laptop.model}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{laptop.image}}">
+        <mat-card-content>
+            <h2>{{laptop.price | currency}}</h2>
+            <p>{{laptop.description | slice: 0 : 90}}...</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-raised-button color="warn" [ngClass]="{'left-button': !isAdmin}" (click)="buyHandler(laptop._id)">Buy</a>
+            <a mat-raised-button color="primary" [ngClass]="{'right-button': !isAdmin}"
+                routerLink="/laptop/details/{{laptop._id}}">Details</a>
+            <a mat-raised-button color="primary" id="edit-button" routerLink="/laptop/edit/{{laptop._id}}" *ngIf="isAdmin">Edit</a>
+        </mat-card-actions>
+    </mat-card>
+</div>
